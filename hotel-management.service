@@ -1,0 +1,48 @@
+[Unit]
+Description=Hotel Management Backend
+Documentation=https://github.com/yourusername/hotel-management-backend
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=exec
+User=hotel
+Group=hotel
+WorkingDirectory=/path/to/your/app
+Environment=PATH=/path/to/your/venv/bin
+Environment=ENVIRONMENT=production
+Environment=DEBUG=false
+
+# Main process
+ExecStart=/path/to/your/venv/bin/gunicorn app.main:app \
+    -w 4 \
+    -k uvicorn.workers.UvicornWorker \
+    --bind 127.0.0.1:8000 \
+    --timeout 120 \
+    --keep-alive 5 \
+    --max-requests 1000 \
+    --max-requests-jitter 100 \
+    --preload
+
+# Restart policy
+Restart=always
+RestartSec=10
+
+# Resource limits
+LimitNOFILE=65536
+LimitNPROC=4096
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/path/to/your/app/uploads /path/to/your/app/logs /path/to/your/app/backups
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=hotel-management
+
+[Install]
+WantedBy=multi-user.target

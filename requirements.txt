@@ -1,0 +1,47 @@
+# Core FastAPI and dependencies
+fastapi==0.116.1
+uvicorn==0.35.0
+pydantic==2.11.7
+pydantic-settings==2.10.1
+python-multipart==0.0.20
+python-dotenv==1.0.0
+
+# Database
+sqlmodel==0.0.24
+sqlalchemy==2.0.36
+alembic==1.13.1
+
+# Authentication and security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.20
+
+# Image processing and OCR
+pillow==10.4.0
+pytesseract==0.3.10
+
+# Machine Learning
+scikit-learn==1.4.0
+joblib==1.4.2
+numpy==1.26.4
+pandas==2.3.1
+
+# PDF generation
+reportlab==4.4.3
+
+# HTTP client
+httpx==0.28.1
+aiohttp==3.12.15
+
+# Utilities
+python-dateutil==2.9.0.post0
+pytz==2024.2
+
+# Logging
+loguru==0.7.3
+
+# Rate limiting
+limits==5.4.0
+
+# Monitoring
+prometheus-fastapi-instrumentator==7.1.0
