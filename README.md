@@ -119,4 +119,4 @@ The API is self-documented using OpenAPI. After starting the server, visit:
  
  License
 
-This project is licensed under the MIT License.
+This project is licensed under the  UNLicense.
