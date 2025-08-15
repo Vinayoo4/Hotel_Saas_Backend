@@ -29,14 +29,19 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install gunicorn
+        echo "✅ Dependencies installed successfully"
 
     - name: Generate ML models
       run: |
+        echo "🔧 Generating ML models..."
         python generate_ml_models.py
+        echo "✅ ML models generated successfully"
 
-    - name: Test application
+    - name: Test application import
       run: |
+        echo "🧪 Testing application import..."
         python -c "from app.main import app; print('✅ Application imports successfully')"
+        echo "✅ Application import test passed"
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v3
